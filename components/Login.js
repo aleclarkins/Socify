@@ -1,8 +1,7 @@
-import { getProviders } from "next-auth/react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Login({ providers }) {
+function Login() {
   return (
     <div className="grid place-content-center h-screen bg-gray-900">
       <AnimatePresence exitBeforeEnter>
@@ -25,13 +24,6 @@ function Login({ providers }) {
       </AnimatePresence>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const providers = await getProviders();
-  return {
-    props: { providers },
-  };
 }
 
 export default Login;
