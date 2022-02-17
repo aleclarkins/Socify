@@ -12,7 +12,7 @@ function Login() {
           exit={{ opacity: 0 }}
           className="flex flex-col items-center space-y-10"
         >
-          <h1 className="font-extrabold text-gray-50 text-6xl">
+          <h1 className="font-extrabold text-gray-50 text-2xl px-2 sm:px-0 sm:text-6xl">
             Hi, welcome to <span className="text-blue-500">Socify</span>!
           </h1>
           <Link href="/auth/signin">

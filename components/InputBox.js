@@ -95,9 +95,7 @@ function InputBox() {
             className="rounded-full h-12 bg-gray-700 flex-grow px-5 focus:outline-none"
             type="text"
             ref={inputRef}
-            placeholder={`What's on your mind, ${
-              session.user.name.split(" ")[0]
-            }?`}
+            placeholder={`What's new, ${session.user.name.split(" ")[0]}?`}
           />
           <button hidden type="submit" onClick={sendPost}>
             Submit
@@ -132,7 +130,7 @@ function InputBox() {
           className="inputIcon rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300 ml-2 mr-2"
         >
           <CameraIcon className="h-7 text-green-400" />
-          <p className="text-xs sm:text-sm xl:tex-md">Photo/Video</p>
+          <p className="text-xs sm:text-sm xl:tex-md">Photo</p>
           <input
             ref={filepickerRef}
             onChange={addImageToPost}

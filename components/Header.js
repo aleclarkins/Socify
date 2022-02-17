@@ -20,7 +20,7 @@ function Header() {
   let [isSignedOut, setIsSignedOut] = useState(false);
 
   return (
-    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-0 sm:p-2 pb-2 pt-3">
+    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-1 sm:p-2 pb-2 pt-3">
       {/* Left */}
       <div className="flex w-96 items-center">
         <h1 className="text-blue-500 font-black text-4xl mr-2">
