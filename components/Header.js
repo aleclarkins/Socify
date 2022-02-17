@@ -47,10 +47,11 @@ function Header() {
 
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
-        <Link href="/">
+        <Link className="hidden sm:inline-flex" href="/">
           <HomeIcon className="icon" />
         </Link>
         <Tooltip
+          className="hidden sm:inline-flex"
           TransitionComponent={Zoom}
           placement="bottom"
           title="'Messaging' feature coming soon"
@@ -61,6 +62,7 @@ function Header() {
           </div>
         </Tooltip>
         <Tooltip
+          className="hidden sm:inline-flex"
           TransitionComponent={Zoom}
           placement="bottom"
           title="'Notification' feature coming soon"
@@ -75,7 +77,7 @@ function Header() {
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button>
-              <div className="cursor-pointer rounded-full flex items-center space-x-2 bg-gray-800 p-1">
+              <div className="cursor-pointer w-12 sm:w-32 rounded-full flex items-center space-x-2 bg-gray-800 p-1">
                 <div className="flex">
                   <Image
                     onClick={signOut}
@@ -87,7 +89,7 @@ function Header() {
                   />
                 </div>
                 <div className="flex">
-                  <p className="flex whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
+                  <p className="hidden sm:flex whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
                     {session.user.name}
                     <ChevronDownIcon className="ml-2 w-4" />
                   </p>
