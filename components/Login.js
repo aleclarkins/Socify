@@ -3,16 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function Login() {
   return (
-    <div className="grid place-content-center h-screen bg-gray-900">
+    <div className="grid place-content-center h-screen bg-gray-900 pb-20">
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key="login"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="flex flex-col items-center space-y-10 -mt-12 sm:mt-0"
+          className="flex flex-col items-center text-center space-y-10"
         >
-          <h1 className="font-extrabold text-gray-50 text-4xl px-2 sm:px-0 sm:text-6xl">
+          <h1 className="font-extrabold text-gray-50 text-5xl px-5 sm:px-0 sm:text-6xl">
             Hi, welcome to <span className="text-blue-500">Socify</span>!
           </h1>
           <Link href="/auth/signin">

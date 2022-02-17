@@ -20,7 +20,7 @@ function Header() {
   let [isSignedOut, setIsSignedOut] = useState(false);
 
   return (
-    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-2 sm:p-2 pb-2 pt-3">
+    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-6 sm:px-4 pt-3">
       {/* Left */}
       <div className="flex w-96 items-center">
         <h1 className="text-blue-500 font-black text-4xl mr-2">
@@ -28,19 +28,13 @@ function Header() {
         </h1>
         <div className="hidden sm:flex ml-2 items-center rounded-full bg-gray-800 p-2">
           <SearchIcon className="h-6 text-gray-600" />
-          <Tooltip
-            TransitionComponent={Zoom}
-            placement="right"
-            title="'Search' feature coming soon"
-            arrow
-          >
-            <input
-              className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-grey-500 text-gray-300 
+
+          <input
+            className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-grey-500 text-gray-300 
               flex-shrink"
-              type="text"
-              placeholder="Search Socify"
-            />
-          </Tooltip>
+            type="text"
+            placeholder="Search Socify"
+          />
         </div>
       </div>
       <div className="w-full"></div>
@@ -57,7 +51,7 @@ function Header() {
           className="hidden sm:inline-flex"
           TransitionComponent={Zoom}
           placement="bottom"
-          title="'Messaging' feature coming soon"
+          title="Messaging"
           arrow
         >
           <div>
@@ -68,7 +62,7 @@ function Header() {
           className="hidden sm:inline-flex"
           TransitionComponent={Zoom}
           placement="bottom"
-          title="'Notification' feature coming soon"
+          title="Notifications"
           arrow
         >
           <div>
@@ -92,9 +86,10 @@ function Header() {
                   />
                 </div>
                 <div className="flex">
-                  <p className="whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
+                  <p className="flex whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
                     <span className="hidden sm:flex">{session.user.name}</span>
-                    <ChevronDownIcon className="ml-2 w-4" />
+
+                    <ChevronDownIcon className="hidden sm:inline-flex ml-2 w-4" />
                   </p>
                 </div>
               </div>

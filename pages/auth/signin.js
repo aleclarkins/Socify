@@ -10,7 +10,7 @@ function signin({ providers }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="flex flex-col items-center space-y-10"
+          className="flex flex-col items-center space-y-10 pb-20"
         >
           <h1 className="font-extrabold text-gray-50 text-6xl">
             <span className="text-blue-500">Socify</span>

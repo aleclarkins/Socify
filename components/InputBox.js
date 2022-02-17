@@ -114,17 +114,11 @@ function InputBox() {
 
       {/* Buttons */}
       <div className="flex justify-evenly p-3">
-        <Tooltip
-          TransitionComponent={Zoom}
-          placement="bottom"
-          title="'Live Video' feature coming soon"
-          arrow
-        >
-          <div className="inputIcon rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300">
-            <VideoCameraIcon className="h-7 text-red-500" />
-            <p className="text-xs sm:text-sm xl:text-md">Live Video</p>
-          </div>
-        </Tooltip>
+        <div className="inputIcon rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300">
+          <VideoCameraIcon className="h-7 text-red-500" />
+          <p className="text-xs sm:text-sm xl:text-md">Live Video</p>
+        </div>
+
         <div
           onClick={() => filepickerRef.current.click()}
           className="inputIcon rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300 ml-2 mr-2"
@@ -138,17 +132,11 @@ function InputBox() {
             hidden
           />
         </div>
-        <Tooltip
-          TransitionComponent={Zoom}
-          placement="bottom"
-          title="'Feeling/Activity' feature coming soon"
-          arrow
-        >
-          <div className="inputIcon  rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300">
-            <EmojiHappyIcon className="h-7 text-yellow-300" />
-            <p className="text-xs sm:text-sm xl:text-md">Feeling/Activity</p>
-          </div>
-        </Tooltip>
+
+        <div className="inputIcon  rounded-full border-2 border-slate-700 hover:bg-gray-700 hover:text-gray-300">
+          <EmojiHappyIcon className="h-7 text-yellow-300" />
+          <p className="text-xs sm:text-sm xl:text-md">Feeling/Activity</p>
+        </div>
       </div>
 
       {/* Sending post modal */}
