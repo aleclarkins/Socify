@@ -20,7 +20,7 @@ function Header() {
   let [isSignedOut, setIsSignedOut] = useState(false);
 
   return (
-    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-1 sm:p-2 pb-2 pt-3">
+    <div className="sticky top-0 z-10 bg-gray-900 flex items-center px-2 sm:p-2 pb-2 pt-3">
       {/* Left */}
       <div className="flex w-96 items-center">
         <h1 className="text-blue-500 font-black text-4xl mr-2">
@@ -80,7 +80,7 @@ function Header() {
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button>
-              <div className="cursor-pointer w-12 sm:max-w-fit rounded-full flex items-center space-x-2 bg-gray-800 p-1">
+              <div className="cursor-pointer w-12 sm:w-full rounded-full flex items-center space-x-2 bg-gray-800 p-1">
                 <div className="flex">
                   <Image
                     onClick={signOut}

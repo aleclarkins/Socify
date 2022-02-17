@@ -10,9 +10,9 @@ function Login() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="flex flex-col items-center space-y-10"
+          className="flex flex-col items-center space-y-10 -mt-12 sm:mt-0"
         >
-          <h1 className="font-extrabold text-gray-50 text-2xl px-2 sm:px-0 sm:text-6xl">
+          <h1 className="font-extrabold text-gray-50 text-4xl px-2 sm:px-0 sm:text-6xl">
             Hi, welcome to <span className="text-blue-500">Socify</span>!
           </h1>
           <Link href="/auth/signin">
