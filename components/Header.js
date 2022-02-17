@@ -26,7 +26,7 @@ function Header() {
         <h1 className="text-blue-500 font-black text-4xl mr-2">
           S<span className="text-lg text-blue-200">ocify</span>
         </h1>
-        <div className="flex ml-2 items-center rounded-full bg-gray-800 p-2">
+        <div className="hidden sm:flex ml-2 items-center rounded-full bg-gray-800 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <Tooltip
             TransitionComponent={Zoom}
@@ -47,8 +47,11 @@ function Header() {
 
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
-        <Link className="hidden sm:inline-flex" href="/">
-          <HomeIcon className="icon" />
+        <div className="flex sm:hidden items-center rounded-full bg-gray-800 p-2">
+          <SearchIcon className="h-6 text-gray-600" />
+        </div>
+        <Link href="/">
+          <HomeIcon className="hidden sm:inline-flex icon" />
         </Link>
         <Tooltip
           className="hidden sm:inline-flex"
@@ -77,7 +80,7 @@ function Header() {
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button>
-              <div className="cursor-pointer w-12 sm:w-32 rounded-full flex items-center space-x-2 bg-gray-800 p-1">
+              <div className="cursor-pointer w-12 sm:w-50 rounded-full flex items-center space-x-2 bg-gray-800 p-1">
                 <div className="flex">
                   <Image
                     onClick={signOut}
@@ -89,8 +92,8 @@ function Header() {
                   />
                 </div>
                 <div className="flex">
-                  <p className="hidden sm:flex whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
-                    {session.user.name}
+                  <p className="whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
+                    <span className="hidden sm:flex">{session.user.name}</span>
                     <ChevronDownIcon className="ml-2 w-4" />
                   </p>
                 </div>
