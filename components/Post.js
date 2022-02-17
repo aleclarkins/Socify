@@ -173,13 +173,13 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
           </div>
         </div>
 
-        <p className="pt-4 ml-12 text-gray-300">{message}</p>
+        <p className="pt-4 sm:ml-12 text-gray-300">{message}</p>
       </div>
 
       {/* Post Image */}
       {postImage && (
         <div className="bg-gray-800">
-          <div className="relative h-[30rem] md:96 ml-16 mr-4 mb-2 bg-gray-800">
+          <div className="relative h-[30rem] md:96 ml-4 sm:ml-16 mr-4 mb-2 bg-gray-800">
             <Image
               className="rounded-2xl"
               src={postImage}
@@ -193,7 +193,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
       {/* Post impressions */}
       {showImpressions && (
         <div className="bg-gray-800">
-          <div className="bg-gray-800 flex flex-col space-x-3 py-2 ml-16 mr-4 border-t border-b border-gray-700">
+          <div className="bg-gray-800 flex flex-col space-x-3 py-2 ml-4 sm:ml-16 mr-4 border-t border-b border-gray-700">
             <div className="flex items-center space-x-2">
               <p className="text-xs flex-1 text-gray-500">
                 {likes.length > 0
@@ -214,7 +214,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
 
       {/* Like, Comment, and Share buttons */}
       <div className="rounded-b-2xl bg-gray-800 shadow-md pb-3 pt-2">
-        <div className="flex justify-between items-center  text-gray-50 ml-16 mr-4">
+        <div className="flex justify-between items-center  text-gray-50 ml-4 sm:ml-16 mr-4">
           <div onClick={likePost} className="postIcon">
             {!hasLiked ? (
               <ThumbUpIcon className="h-4" />
@@ -248,7 +248,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
-              className="flex space-x-2 p-4 items-center ml-12"
+              className="flex space-x-2 p-4 items-center sm:ml-12"
             >
               <Image
                 className="rounded-full"
@@ -280,7 +280,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
 
         {/* Display comments section */}
         {comments.length > 0 && (
-          <div className="flex flex-col ml-20 mt-4">
+          <div className="flex flex-col ml-4 sm:ml-20 mt-4">
             {comments.map((comment) => (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
