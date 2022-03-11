@@ -1,6 +1,6 @@
 <h2 align="center">
   Socify<br/>
-  <a href="http://aleclarkins.com/" target="_blank">socify.vercel.app</a>
+  <a href="https://socify.vercel.app/" target="_blank">socify.vercel.app</a>
 </h2>
 <p align="center">
 A social media web app.
