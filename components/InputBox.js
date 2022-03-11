@@ -17,6 +17,13 @@ import { Dialog, Transition } from "@headlessui/react";
 
 function InputBox() {
   const { data: session } = useSession();
+  const sessionGuest = {
+    user: {
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/socify-a7183.appspot.com/o/GuestImage.jpeg?alt=media&token=1599552c-3813-43eb-8807-302dce19ef52",
+      name: "Guest",
+    },
+  };
   const inputRef = useRef(null);
   const filepickerRef = useRef(null);
   const [imageToPost, setImageToPost] = useState(null);
@@ -29,15 +36,17 @@ function InputBox() {
 
     if (!inputRef.current.value) return;
 
-    const docRef = await addDoc(collection(db, "posts"), {
-      message: inputRef.current.value,
-      name: session.user.name,
-      email: session.user.email,
-      image: session.user.image,
-      timestamp: serverTimestamp(),
-    });
+    const docRef =
+      session &&
+      (await addDoc(collection(db, "posts"), {
+        message: inputRef.current.value,
+        name: session ? session.user.name : sessionGuest.user.name,
+        email: session.user.email,
+        image: session.user.image,
+        timestamp: serverTimestamp(),
+      }));
 
-    if (imageToPost != null) {
+    if (imageToPost != null && session) {
       const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
       await uploadString(imageRef, imageToPost, "data_url").then(
@@ -85,7 +94,7 @@ function InputBox() {
       <div className="flex space-x-4 p-4 items-center">
         <Image
           className="rounded-full"
-          src={session.user.image}
+          src={session ? session.user.image : sessionGuest.user.image}
           width={40}
           height={40}
           layout="fixed"
@@ -95,7 +104,11 @@ function InputBox() {
             className="rounded-full h-12 bg-gray-700 flex-grow px-5 focus:outline-none"
             type="text"
             ref={inputRef}
-            placeholder={`What's new, ${session.user.name.split(" ")[0]}?`}
+            placeholder={
+              session
+                ? `What's new, ${session.user.name.split(" ")[0]}?`
+                : "What's new, Guest?"
+            }
           />
           <button hidden type="submit" onClick={sendPost}>
             Submit

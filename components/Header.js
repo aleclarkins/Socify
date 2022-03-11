@@ -13,9 +13,21 @@ import { Fragment } from "react/cjs/react.production.min";
 import { useState } from "react";
 import Link from "next/link";
 import { Tooltip, Zoom } from "@mui/material";
+import { useRecoilState } from "recoil";
+import { guestState } from "../atoms/guestAtom";
 
 function Header() {
+  const [isGuest, setIsGuest] = useRecoilState(guestState);
   const { data: session } = useSession();
+
+  const sessionGuest = {
+    user: {
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/socify-a7183.appspot.com/o/GuestImage.jpeg?alt=media&token=1599552c-3813-43eb-8807-302dce19ef52",
+      name: "Guest",
+    },
+  };
+
   session ? console.log("session active") : console.log("session not active");
   let [isSignedOut, setIsSignedOut] = useState(false);
 
@@ -79,7 +91,7 @@ function Header() {
                   <Image
                     onClick={signOut}
                     className="rounded-full cursor-pointer"
-                    src={session.user.image}
+                    src={session ? session.user.image : sessionGuest.user.image}
                     width="40"
                     height="40"
                     layout="fixed"
@@ -87,7 +99,9 @@ function Header() {
                 </div>
                 <div className="flex">
                   <p className="flex whitespace-nowrap font-semibold text-gray-300 pr-2 text-xs">
-                    <span className="hidden sm:flex">{session.user.name}</span>
+                    <span className="hidden sm:flex">
+                      {session ? session.user.name : sessionGuest.user.name}
+                    </span>
 
                     <ChevronDownIcon className="hidden sm:inline-flex ml-2 w-4" />
                   </p>

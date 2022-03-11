@@ -18,6 +18,14 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function Post({ id, name, message, email, postImage, image, timestamp }) {
   const { data: session } = useSession();
+  const sessionGuest = {
+    user: {
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/socify-a7183.appspot.com/o/GuestImage.jpeg?alt=media&token=1599552c-3813-43eb-8807-302dce19ef52",
+      name: "Guest",
+      uid: "123456789",
+    },
+  };
   let [addCommentWindow, setAddCommentWindow] = useState(false);
   const [comments, setComments] = useState([]);
 
@@ -64,12 +72,13 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
     setComment("");
     setAddCommentWindow(false);
 
-    await addDoc(collection(db, "posts", id, "comments"), {
-      comment: commentToSend,
-      userName: session.user.name,
-      userImage: session.user.image,
-      timestamp: serverTimestamp(),
-    });
+    session &&
+      (await addDoc(collection(db, "posts", id, "comments"), {
+        comment: commentToSend,
+        userName: session.user.name,
+        userImage: session.user.image,
+        timestamp: serverTimestamp(),
+      }));
   };
 
   // Show impression only if Likes > 0 or Comments > 0
@@ -92,6 +101,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
 
   useEffect(
     () =>
+      session &&
       setHasLiked(
         likes.findIndex((like) => like.id === session.user.uid) !== -1
       ),
@@ -100,11 +110,13 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
 
   const likePost = async () => {
     if (hasLiked) {
-      await deleteDoc(doc(db, "posts", id, "likes", session.user.uid));
+      session &&
+        (await deleteDoc(doc(db, "posts", id, "likes", session.user.uid)));
     } else {
-      await setDoc(doc(db, "posts", id, "likes", session.user.uid), {
-        name: session.user.name,
-      });
+      session &&
+        (await setDoc(doc(db, "posts", id, "likes", session.user.uid), {
+          name: session.user.name,
+        }));
     }
   };
 
@@ -252,7 +264,7 @@ function Post({ id, name, message, email, postImage, image, timestamp }) {
             >
               <Image
                 className="rounded-full"
-                src={session.user.image}
+                src={session ? session.user.image : sessionGuest.user.image}
                 width={40}
                 height={40}
                 layout="fixed"

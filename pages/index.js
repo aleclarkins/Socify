@@ -7,12 +7,19 @@ import RightSidebar from "../components/RightSidebar";
 import Login from "../components/Login";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useRecoilState } from "recoil";
+import { guestState } from "../atoms/guestAtom";
 
 export default function Home() {
+  const [isGuest, setIsGuest] = useRecoilState(guestState);
+  console.log("Guest is: " + isGuest);
+
   const { data: session } = useSession();
 
   if (!session) {
-    return <Login />;
+    if (isGuest === false) {
+      return <Login />;
+    }
   }
 
   return (

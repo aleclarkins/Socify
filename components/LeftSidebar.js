@@ -13,6 +13,13 @@ import { Tooltip, Zoom } from "@mui/material";
 
 function Sidebar() {
   const { data: session } = useSession();
+  const sessionGuest = {
+    user: {
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/socify-a7183.appspot.com/o/GuestImage.jpeg?alt=media&token=1599552c-3813-43eb-8807-302dce19ef52",
+      name: "Guest",
+    },
+  };
   return (
     <div className="hidden md:flex flex-col w-80 overflow-y-auto h-screen scrollbar-hide pb-40">
       <AnimatePresence exitBeforeEnter>
@@ -27,14 +34,14 @@ function Sidebar() {
             <div className="flex justify-center p-6">
               <Image
                 className="rounded-full"
-                src={session.user.image}
+                src={session ? session.user.image : sessionGuest.user.image}
                 height={60}
                 width={60}
               />
             </div>
             <div className="flex flex-col items-center pb-2 mx-2 border-b-2 border-gray-700 ">
               <p className="text-xl text-gray-300 font-medium">
-                {session.user.name}
+                {session ? session.user.name : sessionGuest.user.name}
               </p>
               <p className="my-2 w-40 text-center text-gray-400">
                 Web Developer who loves to code
