@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { guestState } from "../../atoms/guestAtom";
 
-function signin({ providers }) {
+function Signin({ providers }) {
   const [isGuest, setIsGuest] = useRecoilState(guestState);
 
   return (
@@ -65,4 +65,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default signin;
+export default Signin;
