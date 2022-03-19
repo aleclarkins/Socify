@@ -46,9 +46,12 @@ function Signin({ providers }) {
             </Link>
             <div className="mx-24">
               <p className="text-gray-500">
-                <span className="font-bold">Note:</span> Features such as
-                posting, liking and commenting are currently disabled to prevent
-                spam.
+                <span className="font-bold">Note:</span> Socify is still
+                currently in development. Features such as posting, liking, and
+                commenting are temporarily disabled. To view a demo, please
+                visit the Socify{" "}
+                <a href="https://github.com/aleclarkins/Socify">GitHub</a>{" "}
+                repository.
               </p>
             </div>
           </>
