@@ -50,7 +50,12 @@ function Signin({ providers }) {
                 currently in development. Features such as posting, liking, and
                 commenting are temporarily disabled. To view a demo, please
                 visit the Socify{" "}
-                <a href="https://github.com/aleclarkins/Socify">GitHub</a>{" "}
+                <a
+                  className="underline text-blue-400 hover:text-blue-600"
+                  href="https://github.com/aleclarkins/Socify"
+                >
+                  GitHub
+                </a>{" "}
                 repository.
               </p>
             </div>
